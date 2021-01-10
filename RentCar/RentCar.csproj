@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +55,125 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Cliente.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Empleado.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Inspeccion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Marca.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Modelo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\RentaDevolucion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\TipoCombustible.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\TipoVehiculo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Vehiculo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vistas\ClienteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ClienteForm.Designer.cs">
+      <DependentUpon>ClienteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\CombustibleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\CombustibleForm.Designer.cs">
+      <DependentUpon>CombustibleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\EmpleadoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\EmpleadoForm.Designer.cs">
+      <DependentUpon>EmpleadoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\InspeccionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\InspeccionForm.Designer.cs">
+      <DependentUpon>InspeccionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\MarcaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\MarcaForm.Designer.cs">
+      <DependentUpon>MarcaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ModeloForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ModeloForm.Designer.cs">
+      <DependentUpon>ModeloForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\RentaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\RentaForm.Designer.cs">
+      <DependentUpon>RentaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\TipoVehiculoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\TipoVehiculoForm.Designer.cs">
+      <DependentUpon>TipoVehiculoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\TipoVehiculoFormChild\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\TipoVehiculoFormChild\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VehiculoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\VehiculoForm.Designer.cs">
+      <DependentUpon>VehiculoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Welcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Welcome.Designer.cs">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +183,47 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vistas\ClienteForm.resx">
+      <DependentUpon>ClienteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\CombustibleForm.resx">
+      <DependentUpon>CombustibleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\EmpleadoForm.resx">
+      <DependentUpon>EmpleadoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\InspeccionForm.resx">
+      <DependentUpon>InspeccionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\MarcaForm.resx">
+      <DependentUpon>MarcaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ModeloForm.resx">
+      <DependentUpon>ModeloForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\RentaForm.resx">
+      <DependentUpon>RentaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\TipoVehiculoForm.resx">
+      <DependentUpon>TipoVehiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\TipoVehiculoFormChild\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\VehiculoForm.resx">
+      <DependentUpon>VehiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Welcome.resx">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Modelos\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Modelos\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +236,31 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Modelos\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Modelos\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Vistas\ClienteFormChild\" />
+    <Folder Include="Vistas\CombustibleFormChild\" />
+    <Folder Include="Vistas\EmpleadoFormChild\" />
+    <Folder Include="Vistas\InspeccionFormChild\" />
+    <Folder Include="Vistas\MarcaFormChild\" />
+    <Folder Include="Vistas\ModeloFormChild\" />
+    <Folder Include="Vistas\RentaFormChild\" />
+    <Folder Include="Vistas\VehiculoFormChild\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

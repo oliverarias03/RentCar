@@ -10,6 +10,7 @@ GO
 -- Cuando se llena la fecha de devolucion, actualizar estado a Disponible
 -- LOS UNICOS VEHICULOS QUE ESTARAN EN LA LISTA PARA RENTAR SON LOS DISPONIBLES
 -- ESTADO GOMAS (CORRECTO/INCORRECTO)
+-- Agregar Validacion para los empleado/clientes (cedula)
 --------------------------------------------------------------------------------------
 IF OBJECT_ID('dbo.RentaDevolucion', 'U') IS NOT NULL
     DROP TABLE dbo.RentaDevolucion;
@@ -40,21 +41,21 @@ IF OBJECT_ID('dbo.TipoVehiculo', 'U') IS NOT NULL
 GO
 --------------------------------------------------------------------------------------
 CREATE TABLE TipoVehiculo
-(Id          INT
+(Id          INT identity(1,1)
  PRIMARY KEY NOT NULL, 
  Descripcion VARCHAR(50), 
  Estado      VARCHAR(10)
 );
 GO
 CREATE TABLE Marca
-(Id          INT
+(Id          INT identity(1,1)
  PRIMARY KEY NOT NULL, 
  Descripcion VARCHAR(50), 
  Estado      VARCHAR(10)
 );
 GO
 CREATE TABLE Modelo
-(Id          INT
+(Id          INT identity(1,1)
  PRIMARY KEY NOT NULL, 
  Descripcion VARCHAR(50), 
  Estado      VARCHAR(10), 
@@ -63,14 +64,14 @@ CREATE TABLE Modelo
 );
 GO
 CREATE TABLE TipoCombustible
-(Id          INT
+(Id          INT identity(1,1)
  PRIMARY KEY NOT NULL, 
  Descripcion VARCHAR(50), 
  Estado      VARCHAR(10)
 );
 GO
 CREATE TABLE Vehiculo
-(Id              INT
+(Id              INT identity(1,1)
  PRIMARY KEY NOT NULL, 
  Descripcion     VARCHAR(50), 
  Chasis          VARCHAR(50), 
@@ -88,7 +89,7 @@ CREATE TABLE Vehiculo
 );
 GO
 CREATE TABLE Cliente
-(Id             INT
+(Id             INT identity(1,1)
  PRIMARY KEY NOT NULL, 
  Nombre         VARCHAR(50), 
  Apellido       VARCHAR(50), 
@@ -100,7 +101,7 @@ CREATE TABLE Cliente
 );
 GO
 CREATE TABLE Empleado
-(Id           INT
+(Id           INT identity(1,1)
  PRIMARY KEY NOT NULL, 
  Nombre       VARCHAR(50), 
  Apellido     VARCHAR(50), 
@@ -113,7 +114,7 @@ CREATE TABLE Empleado
 );
 GO
 CREATE TABLE Inspeccion
-(Id                    INT
+(Id                    INT identity(1,1)
  PRIMARY KEY NOT NULL, 
  Vehiculo              INT FOREIGN KEY REFERENCES Vehiculo(Id), 
  Cliente               INT FOREIGN KEY REFERENCES Cliente(Id), 
@@ -130,7 +131,7 @@ CREATE TABLE Inspeccion
 );
 GO
 CREATE TABLE RentaDevolucion
-(Id              INT
+(Id              INT identity(1,1)
  PRIMARY KEY NOT NULL, 
  Empleado        INT FOREIGN KEY REFERENCES Empleado(Id), 
  Vehiculo        INT FOREIGN KEY REFERENCES Vehiculo(Id), 
