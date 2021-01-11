@@ -12,6 +12,8 @@ namespace RentCar.Modelos
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class SistemaRentCarEntities : DbContext
     {
@@ -34,5 +36,18 @@ namespace RentCar.Modelos
         public virtual DbSet<TipoCombustible> TipoCombustibles { get; set; }
         public virtual DbSet<TipoVehiculo> TipoVehiculoes { get; set; }
         public virtual DbSet<Vehiculo> Vehiculoes { get; set; }
+    
+        public virtual int updateVehiculoStatus(Nullable<int> vehiculo, Nullable<System.DateTime> fecha)
+        {
+            var vehiculoParameter = vehiculo.HasValue ?
+                new ObjectParameter("vehiculo", vehiculo) :
+                new ObjectParameter("vehiculo", typeof(int));
+    
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("fecha", fecha) :
+                new ObjectParameter("fecha", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateVehiculoStatus", vehiculoParameter, fechaParameter);
+        }
     }
 }

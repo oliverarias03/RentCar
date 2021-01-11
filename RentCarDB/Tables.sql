@@ -41,22 +41,19 @@ IF OBJECT_ID('dbo.TipoVehiculo', 'U') IS NOT NULL
 GO
 --------------------------------------------------------------------------------------
 CREATE TABLE TipoVehiculo
-(Id          INT identity(1,1)
- PRIMARY KEY NOT NULL, 
+(Id          INT IDENTITY(1, 1) PRIMARY KEY NOT NULL, 
  Descripcion VARCHAR(50), 
  Estado      VARCHAR(10)
 );
 GO
 CREATE TABLE Marca
-(Id          INT identity(1,1)
- PRIMARY KEY NOT NULL, 
+(Id          INT IDENTITY(1, 1) PRIMARY KEY NOT NULL, 
  Descripcion VARCHAR(50), 
  Estado      VARCHAR(10)
 );
 GO
 CREATE TABLE Modelo
-(Id          INT identity(1,1)
- PRIMARY KEY NOT NULL, 
+(Id          INT IDENTITY(1, 1) PRIMARY KEY NOT NULL, 
  Descripcion VARCHAR(50), 
  Estado      VARCHAR(10), 
  Marca       INT NOT NULL
@@ -64,15 +61,13 @@ CREATE TABLE Modelo
 );
 GO
 CREATE TABLE TipoCombustible
-(Id          INT identity(1,1)
- PRIMARY KEY NOT NULL, 
+(Id          INT IDENTITY(1, 1) PRIMARY KEY NOT NULL, 
  Descripcion VARCHAR(50), 
  Estado      VARCHAR(10)
 );
 GO
 CREATE TABLE Vehiculo
-(Id              INT identity(1,1)
- PRIMARY KEY NOT NULL, 
+(Id              INT IDENTITY(1, 1) PRIMARY KEY NOT NULL, 
  Descripcion     VARCHAR(50), 
  Chasis          VARCHAR(50), 
  Motor           VARCHAR(50), 
@@ -89,8 +84,7 @@ CREATE TABLE Vehiculo
 );
 GO
 CREATE TABLE Cliente
-(Id             INT identity(1,1)
- PRIMARY KEY NOT NULL, 
+(Id             INT IDENTITY(1, 1) PRIMARY KEY NOT NULL, 
  Nombre         VARCHAR(50), 
  Apellido       VARCHAR(50), 
  Cedula         VARCHAR(50), 
@@ -101,8 +95,7 @@ CREATE TABLE Cliente
 );
 GO
 CREATE TABLE Empleado
-(Id           INT identity(1,1)
- PRIMARY KEY NOT NULL, 
+(Id           INT IDENTITY(1, 1) PRIMARY KEY NOT NULL, 
  Nombre       VARCHAR(50), 
  Apellido     VARCHAR(50), 
  Cedula       VARCHAR(50), 
@@ -114,8 +107,7 @@ CREATE TABLE Empleado
 );
 GO
 CREATE TABLE Inspeccion
-(Id                    INT identity(1,1)
- PRIMARY KEY NOT NULL, 
+(Id                    INT IDENTITY(1, 1) PRIMARY KEY NOT NULL, 
  Vehiculo              INT FOREIGN KEY REFERENCES Vehiculo(Id), 
  Cliente               INT FOREIGN KEY REFERENCES Cliente(Id), 
  Ralladuras            CHAR(2), 
@@ -131,8 +123,7 @@ CREATE TABLE Inspeccion
 );
 GO
 CREATE TABLE RentaDevolucion
-(Id              INT identity(1,1)
- PRIMARY KEY NOT NULL, 
+(Id              INT IDENTITY(1, 1) PRIMARY KEY NOT NULL, 
  Empleado        INT FOREIGN KEY REFERENCES Empleado(Id), 
  Vehiculo        INT FOREIGN KEY REFERENCES Vehiculo(Id), 
  Cliente         INT FOREIGN KEY REFERENCES Cliente(Id), 
@@ -143,4 +134,49 @@ CREATE TABLE RentaDevolucion
  Comentario      VARCHAR(200), 
  Estado          VARCHAR(10)
 );
+--GO
+--CREATE OR ALTER TRIGGER tgr_RentaDevolucion ON RentaDevolucion AFTER INSERT, UPDATE AS
+--BEGIN
+--    DECLARE @vehiculo INT;
+--    SELECT @vehiculo = Vehiculo
+--    FROM inserted;
+--    BEGIN TRY
+--        BEGIN TRAN;
+--        UPDATE Vehiculo
+--          SET 
+--              Estado = CASE
+--                           WHEN
+--        (
+--            SELECT ISNULL(FechaDevolucion, '')
+--            FROM inserted
+--        ) = ''
+--                           THEN 'Rentado'
+--                           ELSE 'Disponible'
+--                       END
+--        WHERE id = @vehiculo;
+--        COMMIT;
+--    END TRY
+--    BEGIN CATCH
+--        ROLLBACK;
+--        PRINT 'Hay	errores' + ERROR_MESSAGE();
+--    END CATCH;
+--END;
 GO
+CREATE OR ALTER PROCEDURE updateVehiculoStatus
+(@vehiculo INT, 
+ @fecha    DATE
+)
+AS
+    BEGIN
+        UPDATE Vehiculo
+          SET 
+              Estado = CASE
+                           WHEN
+        (
+            SELECT ISNULL(@fecha, '')
+        ) = ''
+                           THEN 'Rentado'
+                           ELSE 'Disponible'
+                       END
+        WHERE id = @vehiculo;
+    END;

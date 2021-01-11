@@ -64,15 +64,15 @@ namespace RentCar.Vistas
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(836, 461);
-            this.splitContainer1.SplitterDistance = 84;
+            this.splitContainer1.Size = new System.Drawing.Size(1131, 458);
+            this.splitContainer1.SplitterDistance = 83;
             this.splitContainer1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 51);
+            this.label1.Location = new System.Drawing.Point(12, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 16);
             this.label1.TabIndex = 5;
@@ -80,61 +80,66 @@ namespace RentCar.Vistas
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(707, 46);
+            this.btn_delete.Location = new System.Drawing.Point(707, 42);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(100, 27);
             this.btn_delete.TabIndex = 4;
             this.btn_delete.Text = "Eliminar";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_edit
             // 
-            this.btn_edit.Location = new System.Drawing.Point(586, 46);
+            this.btn_edit.Location = new System.Drawing.Point(586, 42);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(100, 27);
             this.btn_edit.TabIndex = 3;
             this.btn_edit.Text = "Editar";
             this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(465, 46);
+            this.btn_add.Location = new System.Drawing.Point(465, 42);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(100, 27);
             this.btn_add.TabIndex = 2;
             this.btn_add.Text = "Agregar";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_buscar
             // 
-            this.btn_buscar.Location = new System.Drawing.Point(309, 46);
+            this.btn_buscar.Location = new System.Drawing.Point(309, 42);
             this.btn_buscar.Name = "btn_buscar";
             this.btn_buscar.Size = new System.Drawing.Size(82, 27);
             this.btn_buscar.TabIndex = 1;
             this.btn_buscar.Text = "buscar";
             this.btn_buscar.UseVisualStyleBackColor = true;
+            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
             // v_cedula
             // 
             this.v_cedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.v_cedula.Location = new System.Drawing.Point(111, 48);
+            this.v_cedula.Location = new System.Drawing.Point(111, 44);
             this.v_cedula.Name = "v_cedula";
             this.v_cedula.Size = new System.Drawing.Size(180, 22);
             this.v_cedula.TabIndex = 0;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(831, 365);
+            this.dataGridView1.Size = new System.Drawing.Size(1125, 365);
             this.dataGridView1.TabIndex = 0;
             // 
             // RentaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 461);
+            this.ClientSize = new System.Drawing.Size(1131, 458);
             this.Controls.Add(this.splitContainer1);
             this.MaximizeBox = false;
             this.Name = "RentaForm";

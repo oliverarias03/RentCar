@@ -316,5 +316,9 @@
       <End Role="TipoVehiculo" EntitySet="TipoVehiculoes" />
       <End Role="Vehiculo" EntitySet="Vehiculoes" />
     </AssociationSet>
+    <FunctionImport Name="updateVehiculoStatus">
+      <Parameter Name="vehiculo" Mode="In" Type="Int32" />
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>

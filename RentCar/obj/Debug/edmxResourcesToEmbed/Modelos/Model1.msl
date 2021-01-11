@@ -118,5 +118,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="updateVehiculoStatus" FunctionName="SistemaRentCarModel.Store.updateVehiculoStatus" />
   </EntityContainerMapping>
 </Mapping>

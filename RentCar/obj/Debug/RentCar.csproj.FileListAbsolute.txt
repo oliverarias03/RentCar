@@ -33,3 +33,10 @@ C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\Rent
 C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.TipoVehiculoForm.resources
 C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.VehiculoForm.resources
 C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.TipoVehiculoFormChild.Add.resources
+C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.MarcaFormChild.Add.resources
+C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.ModeloFormChild.Add.resources
+C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.CombustibleFormChild.Add.resources
+C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.VehiculoFormChild.Add.resources
+C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.ClienteFormChild.Add.resources
+C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.EmpleadoFormChild.Add.resources
+C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.RentaFormChild.Add.resources

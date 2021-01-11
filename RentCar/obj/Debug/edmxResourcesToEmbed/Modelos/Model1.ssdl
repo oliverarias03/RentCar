@@ -240,6 +240,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="updateVehiculoStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vehiculo" Type="int" Mode="In" />
+    <Parameter Name="fecha" Type="date" Mode="In" />
+  </Function>
   <EntityContainer Name="SistemaRentCarModelStoreContainer">
     <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />

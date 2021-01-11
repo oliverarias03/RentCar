@@ -35,7 +35,7 @@ namespace RentCar.Vistas
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_buscar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.v_chasis = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -58,13 +58,13 @@ namespace RentCar.Vistas
             this.splitContainer1.Panel1.Controls.Add(this.btn_edit);
             this.splitContainer1.Panel1.Controls.Add(this.btn_add);
             this.splitContainer1.Panel1.Controls.Add(this.btn_buscar);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.v_chasis);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(839, 462);
-            this.splitContainer1.SplitterDistance = 84;
+            this.splitContainer1.Size = new System.Drawing.Size(930, 459);
+            this.splitContainer1.SplitterDistance = 83;
             this.splitContainer1.TabIndex = 1;
             // 
             // label1
@@ -85,6 +85,7 @@ namespace RentCar.Vistas
             this.btn_delete.TabIndex = 4;
             this.btn_delete.Text = "Eliminar";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_edit
             // 
@@ -94,6 +95,7 @@ namespace RentCar.Vistas
             this.btn_edit.TabIndex = 3;
             this.btn_edit.Text = "Editar";
             this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // btn_add
             // 
@@ -103,6 +105,7 @@ namespace RentCar.Vistas
             this.btn_add.TabIndex = 2;
             this.btn_add.Text = "Agregar";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_buscar
             // 
@@ -112,28 +115,30 @@ namespace RentCar.Vistas
             this.btn_buscar.TabIndex = 1;
             this.btn_buscar.Text = "buscar";
             this.btn_buscar.UseVisualStyleBackColor = true;
+            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
-            // textBox1
+            // v_chasis
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(75, 50);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 22);
-            this.textBox1.TabIndex = 0;
+            this.v_chasis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.v_chasis.Location = new System.Drawing.Point(75, 50);
+            this.v_chasis.Name = "v_chasis";
+            this.v_chasis.Size = new System.Drawing.Size(180, 22);
+            this.v_chasis.TabIndex = 0;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(831, 365);
+            this.dataGridView1.Size = new System.Drawing.Size(924, 365);
             this.dataGridView1.TabIndex = 0;
             // 
             // VehiculoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 462);
+            this.ClientSize = new System.Drawing.Size(930, 459);
             this.Controls.Add(this.splitContainer1);
             this.MaximizeBox = false;
             this.Name = "VehiculoForm";
@@ -157,7 +162,7 @@ namespace RentCar.Vistas
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Button btn_buscar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox v_chasis;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

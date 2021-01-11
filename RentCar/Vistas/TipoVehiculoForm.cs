@@ -107,17 +107,23 @@ namespace RentCar.Vistas
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            int? id = GetId();
-            if (id != null)
+            if (MessageBox.Show("Al Eliminar el Registro se eliminaran los demas registros relacionados con este Tipo. Desea Continuar?", "Eliminar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             {
-                using (SistemaRentCarEntities db = new SistemaRentCarEntities())
+                // If 'Yes', do something here.
+                int? id = GetId();
+                if (id != null)
                 {
-                    TipoVehiculo oTabla = db.TipoVehiculoes.Find(id);
-                    db.TipoVehiculoes.Remove(oTabla);
+                    using (SistemaRentCarEntities db = new SistemaRentCarEntities())
+                    {
+                        TipoVehiculo oTabla = db.TipoVehiculoes.Find(id);
+                        db.TipoVehiculoes.Remove(oTabla);
 
-                    db.SaveChanges();
+                        db.SaveChanges();
+                    }
+                    Refrescar();
                 }
-                Refrescar();
             }
         }
 

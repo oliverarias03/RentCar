@@ -50,7 +50,7 @@ namespace RentCar.Vistas.TipoVehiculoFormChild
                 {
                     var exists = db.TipoVehiculoes.Any(x => x.Descripcion.Equals(v_descripcion.Text));
 
-                    if (exists)
+                    if (exists && id == null)
                     {
                         MessageBox.Show("Tipo de Vehiculo ya existe");
                         return;

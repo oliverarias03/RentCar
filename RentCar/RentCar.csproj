@@ -105,11 +105,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SistemaRentCarDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemaRentCarDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\ClienteForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vistas\ClienteForm.Designer.cs">
       <DependentUpon>ClienteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ClienteFormChild\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ClienteFormChild\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\CombustibleForm.cs">
       <SubType>Form</SubType>
@@ -117,11 +128,23 @@
     <Compile Include="Vistas\CombustibleForm.Designer.cs">
       <DependentUpon>CombustibleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\CombustibleFormChild\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\CombustibleFormChild\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\EmpleadoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vistas\EmpleadoForm.Designer.cs">
       <DependentUpon>EmpleadoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\EmpleadoFormChild\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\EmpleadoFormChild\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\InspeccionForm.cs">
       <SubType>Form</SubType>
@@ -129,11 +152,23 @@
     <Compile Include="Vistas\InspeccionForm.Designer.cs">
       <DependentUpon>InspeccionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\InspeccionFormChild\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\InspeccionFormChild\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\MarcaForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vistas\MarcaForm.Designer.cs">
       <DependentUpon>MarcaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\MarcaFormChild\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\MarcaFormChild\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\ModeloForm.cs">
       <SubType>Form</SubType>
@@ -141,11 +176,23 @@
     <Compile Include="Vistas\ModeloForm.Designer.cs">
       <DependentUpon>ModeloForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\ModeloFormChild\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ModeloFormChild\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\RentaForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vistas\RentaForm.Designer.cs">
       <DependentUpon>RentaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\RentaFormChild\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\RentaFormChild\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\TipoVehiculoForm.cs">
       <SubType>Form</SubType>
@@ -164,6 +211,12 @@
     </Compile>
     <Compile Include="Vistas\VehiculoForm.Designer.cs">
       <DependentUpon>VehiculoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VehiculoFormChild\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\VehiculoFormChild\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Welcome.cs">
       <SubType>Form</SubType>
@@ -186,11 +239,20 @@
     <EmbeddedResource Include="Vistas\ClienteForm.resx">
       <DependentUpon>ClienteForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ClienteFormChild\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\CombustibleForm.resx">
       <DependentUpon>CombustibleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\CombustibleFormChild\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\EmpleadoForm.resx">
       <DependentUpon>EmpleadoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\EmpleadoFormChild\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\InspeccionForm.resx">
       <DependentUpon>InspeccionForm.cs</DependentUpon>
@@ -198,11 +260,20 @@
     <EmbeddedResource Include="Vistas\MarcaForm.resx">
       <DependentUpon>MarcaForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\MarcaFormChild\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\ModeloForm.resx">
       <DependentUpon>ModeloForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ModeloFormChild\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\RentaForm.resx">
       <DependentUpon>RentaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\RentaFormChild\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\TipoVehiculoForm.resx">
       <DependentUpon>TipoVehiculoForm.cs</DependentUpon>
@@ -212,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\VehiculoForm.resx">
       <DependentUpon>VehiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\VehiculoFormChild\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Welcome.resx">
       <DependentUpon>Welcome.cs</DependentUpon>
@@ -233,6 +307,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SistemaRentCarDataSet.xsc">
+      <DependentUpon>SistemaRentCarDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SistemaRentCarDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SistemaRentCarDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SistemaRentCarDataSet.xss">
+      <DependentUpon>SistemaRentCarDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -252,15 +337,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Vistas\ClienteFormChild\" />
-    <Folder Include="Vistas\CombustibleFormChild\" />
-    <Folder Include="Vistas\EmpleadoFormChild\" />
-    <Folder Include="Vistas\InspeccionFormChild\" />
-    <Folder Include="Vistas\MarcaFormChild\" />
-    <Folder Include="Vistas\ModeloFormChild\" />
-    <Folder Include="Vistas\RentaFormChild\" />
-    <Folder Include="Vistas\VehiculoFormChild\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

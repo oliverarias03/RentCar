@@ -16,8 +16,6 @@ namespace RentCar.Vistas
         public Welcome(Empleado empleado)
         {
             InitializeComponent();
-            Login loginForm = new Login();
-            loginForm.Close();
 
             v_username.Text = empleado.Nombre + " " + empleado.Apellido;
             v_fechaActual.Text = System.DateTime.Now.ToString();
