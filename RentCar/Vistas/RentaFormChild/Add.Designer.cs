@@ -303,6 +303,7 @@ namespace RentCar.Vistas.RentaFormChild
             // 
             // v_comentario
             // 
+            this.v_comentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.v_comentario.Location = new System.Drawing.Point(157, 256);
             this.v_comentario.Multiline = true;
             this.v_comentario.Name = "v_comentario";

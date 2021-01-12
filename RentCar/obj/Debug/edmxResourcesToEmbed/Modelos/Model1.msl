@@ -33,6 +33,7 @@
     <EntitySetMapping Name="Inspeccions">
       <EntityTypeMapping TypeName="SistemaRentCarModel.Inspeccion">
         <MappingFragment StoreEntitySet="Inspeccion">
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Vehiculo" ColumnName="Vehiculo" />
           <ScalarProperty Name="Cliente" ColumnName="Cliente" />

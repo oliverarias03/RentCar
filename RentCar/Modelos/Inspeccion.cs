@@ -27,6 +27,7 @@ namespace RentCar.Modelos
         public string EstadoGomasDelanteras { get; set; }
         public string EstadoGomasTraseras { get; set; }
         public string Estado { get; set; }
+        public string Comentario { get; set; }
     
         public virtual Cliente Cliente1 { get; set; }
         public virtual Empleado Empleado1 { get; set; }

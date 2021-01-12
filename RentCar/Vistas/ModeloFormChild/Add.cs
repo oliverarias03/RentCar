@@ -20,9 +20,14 @@ namespace RentCar.Vistas.ModeloFormChild
             InitializeComponent();
             this.id = id;
             if (id != null)
+            {
                 CargaDatos();
+            }
+            else
+            {
+                loadMarcas();
+            }
 
-            loadMarcas();
         }
 
         private void CargaDatos()
@@ -32,8 +37,19 @@ namespace RentCar.Vistas.ModeloFormChild
                 oTabla = db.Modeloes.Find(id);
                 v_descripcion.Text = oTabla.Descripcion;
                 v_status.SelectedItem = oTabla.Estado;
+                v_status.SelectedItem = oTabla.Estado;
                 //cargar marca
+                var marcas = db.Marcas.Where(x => x.Estado == "Activo").Select(x => new { x.Id, x.Descripcion }).ToList();
+                var marcaSelected = db.Marcas.Where(w => w.Id == oTabla.Marca).Select(x => new { x.Id, x.Descripcion }).FirstOrDefault();
 
+                marcas.Insert(0, marcaSelected);
+                marcas = marcas.Distinct().ToList();
+
+                v_marca.DataSource = marcas;
+                v_marca.DisplayMember = "Descripcion";  // Column Name
+                v_marca.ValueMember = "Id";  // Column Name
+
+                v_marca.SelectedItem = marcaSelected;
             }
         }
 

@@ -20,9 +20,14 @@ namespace RentCar.Vistas.VehiculoFormChild
             InitializeComponent();
             this.id = id;
             if (id != null)
+            {
                 CargaDatos();
-
-            loadDrops();
+            }
+            else
+            {
+                loadDrops();
+            }
+           
         }
 
         private void CargaDatos()
@@ -36,6 +41,60 @@ namespace RentCar.Vistas.VehiculoFormChild
                 v_placa.Text = oTabla.Placa;
                 v_status.SelectedItem = oTabla.Estado;
                 //cargar marca,modelo,combustible y tipo
+
+                var marcas = db.Marcas.Where(x => x.Estado == "Activo").Select(x => new { x.Id, x.Descripcion }).ToList();
+                var marcaSelected = db.Marcas.Where(w => w.Id == oTabla.Marca).Select(x => new { x.Id, x.Descripcion }).FirstOrDefault();
+
+                marcas.Insert(0, marcaSelected);
+                marcas = marcas.Distinct().ToList();
+
+                v_marca.DataSource = marcas;
+                v_marca.DisplayMember = "Descripcion";  // Column Name
+                v_marca.ValueMember = "Id";  // Column Name
+
+                v_marca.SelectedItem = marcaSelected;
+
+                //////
+                
+                var modelos = db.Modeloes.Where(x => x.Estado == "Activo").Select(x => new { x.Id, x.Descripcion }).ToList();
+                var modeloSelected = db.Modeloes.Where(w => w.Id == oTabla.Modelo).Select(x => new { x.Id, x.Descripcion }).FirstOrDefault();
+
+                modelos.Insert(0, modeloSelected);
+                modelos = modelos.Distinct().ToList();
+
+                v_modelo.DataSource = modelos;
+                v_modelo.DisplayMember = "Descripcion";  // Column Name
+                v_modelo.ValueMember = "Id";  // Column Name
+
+                v_modelo.SelectedItem = modeloSelected;
+
+                /////////
+
+                var combustibles = db.TipoCombustibles.Where(x => x.Estado == "Activo").Select(x => new { x.Id, x.Descripcion }).ToList();
+                var combustibleSelected = db.TipoCombustibles.Where(w => w.Id == oTabla.TipoCombustible).Select(x => new { x.Id, x.Descripcion }).FirstOrDefault();
+
+                combustibles.Insert(0, combustibleSelected);
+                combustibles = combustibles.Distinct().ToList();
+
+                v_tipoCombustible.DataSource = combustibles;
+                v_tipoCombustible.DisplayMember = "Descripcion";  // Column Name
+                v_tipoCombustible.ValueMember = "Id";  // Column Name
+
+                v_tipoCombustible.SelectedItem = combustibleSelected;
+
+                /////////
+
+                var tipos = db.TipoVehiculoes.Where(x => x.Estado == "Activo").Select(x => new { x.Id, x.Descripcion }).ToList();
+                var tipoSelected = db.TipoVehiculoes.Where(w => w.Id == oTabla.TipoVehiculo).Select(x => new { x.Id, x.Descripcion }).FirstOrDefault();
+
+                tipos.Insert(0, tipoSelected);
+                tipos = tipos.Distinct().ToList();
+
+                v_tipoVehiculo.DataSource = tipos;
+                v_tipoVehiculo.DisplayMember = "Descripcion";  // Column Name
+                v_tipoVehiculo.ValueMember = "Id";  // Column Name
+
+                v_tipoCombustible.SelectedItem = tipoSelected;
 
             }
         }

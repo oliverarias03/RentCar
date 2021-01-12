@@ -20,12 +20,16 @@ namespace RentCar.Vistas.RentaFormChild
             InitializeComponent();
             this.id = id;
             if (id != null)
+            {
                 CargaDatos();
+            }
+            else
+            {
 
-            loadDrops();
-
-            check_devolucion.Checked = false;
-            v_fechaDevolucion.Enabled = false;
+                check_devolucion.Checked = false;
+                v_fechaDevolucion.Enabled = false;
+                loadDrops();
+            }
 
         }
 
@@ -55,10 +59,53 @@ namespace RentCar.Vistas.RentaFormChild
                     v_fechaDevolucion.Enabled = true;
 
                 }
+                else
+                {
+                    check_devolucion.Checked = false;
+                    v_fechaDevolucion.Enabled = false;
+                }
                 v_montoDia.Value = decimal.Parse(oTabla.MontoDia.ToString());
                 v_dias.Value = int.Parse(oTabla.Dias.ToString());
                 v_status.SelectedItem = oTabla.Estado;
                 //cargar empleado,vehiculo,cliente
+
+                var empleados = db.Empleadoes.Where(x => x.Estado == "Activo").Select(x => new { x.Id, Empleado = x.Nombre + " " + x.Apellido }).ToList();
+                var empSelected = db.Empleadoes.Where(w => w.Id == oTabla.Empleado).Select(x => new { x.Id, Empleado = x.Nombre + " " + x.Apellido }).FirstOrDefault();
+
+                empleados.Insert(0, empSelected);
+                empleados = empleados.Distinct().ToList();
+
+                v_empleado.DataSource = empleados;
+                v_empleado.DisplayMember = "Empleado";  // Column Name
+                v_empleado.ValueMember = "Id";  // Column Name
+
+                v_empleado.SelectedItem = empSelected;
+
+
+                var vehiculos = db.Vehiculoes.Where(x => x.Estado == "Disponible").Select(x => new { x.Id, Vehiculo = x.Descripcion + " - " + x.Chasis }).ToList();
+                var vehiculoSelected = db.Vehiculoes.Where(w => w.Id == oTabla.Vehiculo).Select(x => new { x.Id, Vehiculo = x.Descripcion + " - " + x.Chasis }).ToList().FirstOrDefault();
+
+                vehiculos.Insert(0, vehiculoSelected);
+                vehiculos = vehiculos.Distinct().ToList();
+
+                v_vehiculo.DataSource = vehiculos;
+                v_vehiculo.DisplayMember = "Vehiculo";  // Column Name
+                v_vehiculo.ValueMember = "Id";  // Column Name
+
+                v_vehiculo.SelectedItem = vehiculoSelected;
+
+
+                var clientes = db.Clientes.Where(x => x.Estado == "Activo").Select(x => new { x.Id, Cliente = x.Cedula + " - " + x.Nombre + " " + x.Apellido }).ToList();
+                var clienteSelected = db.Clientes.Where(w => w.Id == oTabla.Cliente).Select(x => new { x.Id, Cliente = x.Cedula + " - " + x.Nombre + " " + x.Apellido }).ToList().FirstOrDefault();
+
+                clientes.Insert(0, clienteSelected);
+                clientes = clientes.Distinct().ToList();
+
+                v_cliente.DataSource = clientes;
+                v_cliente.DisplayMember = "Cliente";  // Column Name
+                v_cliente.ValueMember = "Id";  // Column Name
+
+                v_cliente.SelectedItem = vehiculoSelected;
 
             }
         }
@@ -98,20 +145,6 @@ namespace RentCar.Vistas.RentaFormChild
                 }
                 else
                 {
-                    //var c = int.Parse(v_cliente.SelectedValue.ToString());
-                    //var v = int.Parse(v_vehiculo.SelectedValue.ToString());
-                    //var d = v_fechaRenta.Value.ToShortDateString();
-
-                    //var exists = db.RentaDevolucions.Any(x => x.Cliente1.Id == c && 
-                    //    x.Vehiculo1.Id == v && x.FechaRenta.Value.Equals(d));
-
-                    //if (exists && id == null)
-                    //{
-                    //    MessageBox.Show("Renta ya existe");
-                    //    return;
-                    //}
-                    //else
-                    //{
                     oTabla.Empleado = int.Parse(v_empleado.SelectedValue.ToString());
                     oTabla.Vehiculo = int.Parse(v_vehiculo.SelectedValue.ToString());
                     oTabla.Cliente = int.Parse(v_cliente.SelectedValue.ToString());
@@ -135,18 +168,36 @@ namespace RentCar.Vistas.RentaFormChild
                     if (id == null)
                     {
                         db.RentaDevolucions.Add(oTabla);
-                        var res = db.updateVehiculoStatus(oTabla.Vehiculo, oTabla.FechaDevolucion);
-                    }else
+                        if(oTabla.FechaDevolucion == null)
+                        {
+                            var res = db.updateVehiculoStatus(oTabla.Vehiculo, null);
+
+                        }
+                        else
+                        {
+                            var res = db.updateVehiculoStatus(oTabla.Vehiculo, oTabla.FechaDevolucion.Value.ToShortDateString());
+
+                        }
+                    }
+                    else
                     {
                         db.Entry(oTabla).State = System.Data.Entity.EntityState.Modified;
-                        var res = db.updateVehiculoStatus(oTabla.Vehiculo, oTabla.FechaDevolucion);
+                        if (oTabla.FechaDevolucion == null)
+                        {
+                            var res = db.updateVehiculoStatus(oTabla.Vehiculo, null);
+
+                        }
+                        else
+                        {
+                            var res = db.updateVehiculoStatus(oTabla.Vehiculo, oTabla.FechaDevolucion.Value.ToShortDateString());
+
+                        }
 
                     }
 
                     db.SaveChanges();
 
                         this.Close();
-                    //}
 
                 }
 

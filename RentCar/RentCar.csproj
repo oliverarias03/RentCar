@@ -134,6 +134,12 @@
     <Compile Include="Vistas\CombustibleFormChild\Add.Designer.cs">
       <DependentUpon>Add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\ConsultasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ConsultasForm.Designer.cs">
+      <DependentUpon>ConsultasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\EmpleadoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,12 @@
     <Compile Include="Vistas\RentaFormChild\Add.Designer.cs">
       <DependentUpon>Add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\ReportesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ReportesForm.Designer.cs">
+      <DependentUpon>ReportesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\TipoVehiculoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +260,9 @@
     <EmbeddedResource Include="Vistas\CombustibleFormChild\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ConsultasForm.resx">
+      <DependentUpon>ConsultasForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\EmpleadoForm.resx">
       <DependentUpon>EmpleadoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\InspeccionForm.resx">
       <DependentUpon>InspeccionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\InspeccionFormChild\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\MarcaForm.resx">
       <DependentUpon>MarcaForm.cs</DependentUpon>
@@ -274,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\RentaFormChild\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ReportesForm.resx">
+      <DependentUpon>ReportesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\TipoVehiculoForm.resx">
       <DependentUpon>TipoVehiculoForm.cs</DependentUpon>

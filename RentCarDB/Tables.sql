@@ -72,7 +72,7 @@ CREATE TABLE Vehiculo
  Chasis          VARCHAR(50), 
  Motor           VARCHAR(50), 
  Placa           VARCHAR(50), 
- Estado          VARCHAR(10), 
+ Estado          VARCHAR(15), 
  TipoVehiculo    INT NOT NULL
                      FOREIGN KEY REFERENCES TipoVehiculo(Id), 
  Marca           INT NOT NULL
@@ -119,7 +119,8 @@ CREATE TABLE Inspeccion
  Empleado              INT FOREIGN KEY REFERENCES Empleado(Id), 
  EstadoGomasDelanteras VARCHAR(10), 
  EstadoGomasTraseras   VARCHAR(10), 
- Estado                VARCHAR(10)
+ Estado                VARCHAR(10),
+ Comentario      VARCHAR(200)
 );
 GO
 CREATE TABLE RentaDevolucion
@@ -162,21 +163,3 @@ CREATE TABLE RentaDevolucion
 --    END CATCH;
 --END;
 GO
-CREATE OR ALTER PROCEDURE updateVehiculoStatus
-(@vehiculo INT, 
- @fecha    DATE
-)
-AS
-    BEGIN
-        UPDATE Vehiculo
-          SET 
-              Estado = CASE
-                           WHEN
-        (
-            SELECT ISNULL(@fecha, '')
-        ) = ''
-                           THEN 'Rentado'
-                           ELSE 'Disponible'
-                       END
-        WHERE id = @vehiculo;
-    END;

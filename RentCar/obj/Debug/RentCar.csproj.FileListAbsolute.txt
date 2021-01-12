@@ -40,3 +40,6 @@ C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\Rent
 C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.ClienteFormChild.Add.resources
 C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.EmpleadoFormChild.Add.resources
 C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.RentaFormChild.Add.resources
+C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.InspeccionFormChild.Add.resources
+C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.ConsultasForm.resources
+C:\Users\User\Desktop\APEC\4 out of 9\Propietaria 1\Final\RentCar\obj\Debug\RentCar.Vistas.ReportesForm.resources

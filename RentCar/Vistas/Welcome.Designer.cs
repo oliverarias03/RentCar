@@ -183,7 +183,7 @@ namespace RentCar.Vistas
             this.btn_consultas.Name = "btn_consultas";
             this.btn_consultas.Size = new System.Drawing.Size(230, 47);
             this.btn_consultas.TabIndex = 13;
-            this.btn_consultas.Text = "Consultas";
+            this.btn_consultas.Text = "Consultas de Renta";
             this.btn_consultas.UseVisualStyleBackColor = true;
             this.btn_consultas.Click += new System.EventHandler(this.btn_consultas_Click);
             // 

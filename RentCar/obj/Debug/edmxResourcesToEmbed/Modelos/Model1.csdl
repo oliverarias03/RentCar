@@ -51,6 +51,7 @@
     <NavigationProperty Name="Cliente1" Relationship="Self.FK__Inspeccio__Clien__664B26CC" FromRole="Inspeccion" ToRole="Cliente" />
     <NavigationProperty Name="Empleado1" Relationship="Self.FK__Inspeccio__Emple__673F4B05" FromRole="Inspeccion" ToRole="Empleado" />
     <NavigationProperty Name="Vehiculo1" Relationship="Self.FK__Inspeccio__Vehic__65570293" FromRole="Inspeccion" ToRole="Vehiculo" />
+    <Property Name="Comentario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Marca">
     <Key>
@@ -118,7 +119,7 @@
     <Property Name="Chasis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Motor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Placa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="TipoVehiculo" Type="Int32" Nullable="false" />
     <Property Name="Marca" Type="Int32" Nullable="false" />
     <Property Name="Modelo" Type="Int32" Nullable="false" />
@@ -318,7 +319,7 @@
     </AssociationSet>
     <FunctionImport Name="updateVehiculoStatus">
       <Parameter Name="vehiculo" Mode="In" Type="Int32" />
-      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="fecha" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
 </Schema>

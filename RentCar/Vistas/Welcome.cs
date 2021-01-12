@@ -85,12 +85,14 @@ namespace RentCar.Vistas
 
         private void btn_consultas_Click(object sender, EventArgs e)
         {
-
+            ConsultasForm ConsultasForm = new ConsultasForm();
+            ConsultasForm.ShowDialog();
         }
 
         private void btn_reportes_Click(object sender, EventArgs e)
         {
-
+            ReportesForm ReportesForm = new ReportesForm();
+            ReportesForm.ShowDialog();
         }
     }
 }

@@ -106,9 +106,9 @@ namespace RentCar
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(177, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(238, 33);
+            this.label1.Size = new System.Drawing.Size(279, 33);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Oliver\'s Rent Car";
+            this.label1.Text = "El Patron\'s Rent Car";
             // 
             // label2
             // 

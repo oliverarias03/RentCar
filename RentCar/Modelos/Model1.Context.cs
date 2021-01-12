@@ -37,15 +37,15 @@ namespace RentCar.Modelos
         public virtual DbSet<TipoVehiculo> TipoVehiculoes { get; set; }
         public virtual DbSet<Vehiculo> Vehiculoes { get; set; }
     
-        public virtual int updateVehiculoStatus(Nullable<int> vehiculo, Nullable<System.DateTime> fecha)
+        public virtual int updateVehiculoStatus(Nullable<int> vehiculo, string fecha)
         {
             var vehiculoParameter = vehiculo.HasValue ?
                 new ObjectParameter("vehiculo", vehiculo) :
                 new ObjectParameter("vehiculo", typeof(int));
     
-            var fechaParameter = fecha.HasValue ?
+            var fechaParameter = fecha != null ?
                 new ObjectParameter("fecha", fecha) :
-                new ObjectParameter("fecha", typeof(System.DateTime));
+                new ObjectParameter("fecha", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateVehiculoStatus", vehiculoParameter, fechaParameter);
         }
