@@ -62,38 +62,168 @@ namespace RentCar.Vistas.ClienteFormChild
                 }
                 else
                 {
-                    var exists = db.Clientes.Any(x => x.Cedula.Equals(v_cedula.Text));
-
-                    if (exists && id == null)
+                    if(v_tipoPersona.SelectedItem.ToString() == "Fisica")
                     {
-                        MessageBox.Show("Cliente ya existe");
-                        return;
+                        if (validaCedula(v_cedula.Text))
+                        {
+                            if (v_tarjeta.Text.Length != 16)
+                            {
+                                MessageBox.Show("Tarjeta de credito debe ser de 12 digitos.");
+                            }
+                            else
+                            {
+                                var exists = db.Clientes.Any(x => x.Cedula.Equals(v_cedula.Text));
+
+                                if (exists && id == null)
+                                {
+                                    MessageBox.Show("Cliente ya existe");
+                                    return;
+                                }
+                                else
+                                {
+                                    oTabla.Nombre = v_nombre.Text;
+                                    oTabla.Apellido = v_apellido.Text;
+                                    oTabla.Cedula = v_cedula.Text;
+                                    oTabla.TarjetaCredito = v_tarjeta.Text;
+                                    oTabla.LimiteCredito = v_limite.Value;
+                                    oTabla.Estado = v_status.SelectedItem.ToString();
+                                    oTabla.TipoPersona = v_tipoPersona.SelectedItem.ToString();
+
+                                    if (id == null)
+                                        db.Clientes.Add(oTabla);
+                                    else
+                                    {
+                                        db.Entry(oTabla).State = System.Data.Entity.EntityState.Modified;
+                                    }
+
+                                    db.SaveChanges();
+
+                                    this.Close();
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cedula es invalida.");
+                        }
                     }
                     else
                     {
-                        oTabla.Nombre = v_nombre.Text;
-                        oTabla.Apellido = v_apellido.Text;
-                        oTabla.Cedula = v_cedula.Text;
-                        oTabla.TarjetaCredito = v_tarjeta.Text;
-                        oTabla.LimiteCredito = v_limite.Value;
-                        oTabla.Estado = v_status.SelectedItem.ToString();
-                        oTabla.TipoPersona = v_tipoPersona.SelectedItem.ToString();
+                        if (esUnRNCValido(v_cedula.Text))
+                        {
+                            if (v_tarjeta.Text.Length != 16)
+                            {
+                                MessageBox.Show("Tarjeta de credito debe ser de 16 digitos.");
+                            }
+                            else
+                            {
+                                var exists = db.Clientes.Any(x => x.Cedula.Equals(v_cedula.Text));
 
-                        if (id == null)
-                            db.Clientes.Add(oTabla);
+                                if (exists && id == null)
+                                {
+                                    MessageBox.Show("Cliente ya existe");
+                                    return;
+                                }
+                                else
+                                {
+                                    oTabla.Nombre = v_nombre.Text;
+                                    oTabla.Apellido = v_apellido.Text;
+                                    oTabla.Cedula = v_cedula.Text;
+                                    oTabla.TarjetaCredito = v_tarjeta.Text;
+                                    oTabla.LimiteCredito = v_limite.Value;
+                                    oTabla.Estado = v_status.SelectedItem.ToString();
+                                    oTabla.TipoPersona = v_tipoPersona.SelectedItem.ToString();
+
+                                    if (id == null)
+                                        db.Clientes.Add(oTabla);
+                                    else
+                                    {
+                                        db.Entry(oTabla).State = System.Data.Entity.EntityState.Modified;
+                                    }
+
+                                    db.SaveChanges();
+
+                                    this.Close();
+                                }
+                            }
+                        }
                         else
                         {
-                            db.Entry(oTabla).State = System.Data.Entity.EntityState.Modified;
+                            MessageBox.Show("RNC es invalido.");
                         }
-
-                        db.SaveChanges();
-
-                        this.Close();
                     }
-
+                    
                 }
 
             }
         }
+
+        public static bool validaCedula(string pCedula)
+
+        {
+            int vnTotal = 0;
+            string vcCedula = pCedula.Replace("-", "");
+            int pLongCed = vcCedula.Trim().Length;
+            int[] digitoMult = new int[11] { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1 };
+
+            if (pLongCed < 11 || pLongCed > 11)
+                return false;
+
+            for (int vDig = 1; vDig <= pLongCed; vDig++)
+            {
+                int vCalculo = Int32.Parse(vcCedula.Substring(vDig - 1, 1)) * digitoMult[vDig - 1];
+                if (vCalculo < 10)
+                    vnTotal += vCalculo;
+                else
+                    vnTotal += Int32.Parse(vCalculo.ToString().Substring(0, 1)) + Int32.Parse(vCalculo.ToString().Substring(1, 1));
+            }
+
+            if (vnTotal % 10 == 0)
+                return true;
+            else
+                return false;
+        }
+
+        private bool esUnRNCValido(string pRNC)
+
+        {
+
+            int vnTotal = 0;
+
+            int[] digitoMult = new int[8] { 7, 9, 8, 6, 5, 4, 3, 2 };
+
+            string vcRNC = pRNC.Replace("-", "").Replace(" ", "");
+
+            string vDigito = vcRNC.Substring(8, 1);
+
+            if (vcRNC.Length.Equals(9))
+
+                if (!"145".Contains(vcRNC.Substring(0, 1)))
+
+                    return false;
+
+            for (int vDig = 1; vDig <= 8; vDig++)
+
+            {
+
+                int vCalculo = Int32.Parse(vcRNC.Substring(vDig - 1, 1)) * digitoMult[vDig - 1];
+
+                vnTotal += vCalculo;
+
+            }
+
+            if (vnTotal % 11 == 0 && vDigito == "1" || vnTotal % 11 == 1 && vDigito == "1" ||
+
+                (11 - (vnTotal % 11)).Equals(vDigito))
+
+                return true;
+
+            else
+
+                return false;
+
+        }
+
+
     }
 }

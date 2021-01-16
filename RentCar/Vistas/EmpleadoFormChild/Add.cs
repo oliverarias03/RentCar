@@ -53,34 +53,41 @@ namespace RentCar.Vistas.EmpleadoFormChild
                 }
                 else
                 {
-                    var exists = db.Empleadoes.Any(x => x.Cedula.Equals(v_cedula.Text));
-
-                    if (exists && id == null)
+                    if (validaCedula(v_cedula.Text))
                     {
-                        MessageBox.Show("Empleado ya existe");
-                        return;
+                        var exists = db.Empleadoes.Any(x => x.Cedula.Equals(v_cedula.Text));
+
+                        if (exists && id == null)
+                        {
+                            MessageBox.Show("Empleado ya existe");
+                            return;
+                        }
+                        else
+                        {
+                            oTabla.Nombre = v_nombre.Text;
+                            oTabla.Apellido = v_apellido.Text;
+                            oTabla.Cedula = v_cedula.Text;
+                            oTabla.Contrasena = v_contrasena.Text;
+                            oTabla.Comision = v_comision.Value;
+                            oTabla.FechaIngreso = v_fecha.Value;
+                            oTabla.Estado = v_status.SelectedItem.ToString();
+                            oTabla.Tanda = v_tanda.SelectedItem.ToString();
+
+                            if (id == null)
+                                db.Empleadoes.Add(oTabla);
+                            else
+                            {
+                                db.Entry(oTabla).State = System.Data.Entity.EntityState.Modified;
+                            }
+
+                            db.SaveChanges();
+
+                            this.Close();
+                        }
                     }
                     else
                     {
-                        oTabla.Nombre = v_nombre.Text;
-                        oTabla.Apellido = v_apellido.Text;
-                        oTabla.Cedula = v_cedula.Text;
-                        oTabla.Contrasena = v_contrasena.Text;
-                        oTabla.Comision = v_comision.Value;
-                        oTabla.FechaIngreso = v_fecha.Value;
-                        oTabla.Estado = v_status.SelectedItem.ToString();
-                        oTabla.Tanda = v_tanda.SelectedItem.ToString();
-
-                        if (id == null)
-                            db.Empleadoes.Add(oTabla);
-                        else
-                        {
-                            db.Entry(oTabla).State = System.Data.Entity.EntityState.Modified;
-                        }
-
-                        db.SaveChanges();
-
-                        this.Close();
+                        MessageBox.Show("Cedula es invalida.");
                     }
 
                 }
@@ -91,6 +98,32 @@ namespace RentCar.Vistas.EmpleadoFormChild
         private void v_fecha_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public static bool validaCedula(string pCedula)
+
+        {
+            int vnTotal = 0;
+            string vcCedula = pCedula.Replace("-", "");
+            int pLongCed = vcCedula.Trim().Length;
+            int[] digitoMult = new int[11] { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1 };
+
+            if (pLongCed < 11 || pLongCed > 11)
+                return false;
+
+            for (int vDig = 1; vDig <= pLongCed; vDig++)
+            {
+                int vCalculo = Int32.Parse(vcCedula.Substring(vDig - 1, 1)) * digitoMult[vDig - 1];
+                if (vCalculo < 10)
+                    vnTotal += vCalculo;
+                else
+                    vnTotal += Int32.Parse(vCalculo.ToString().Substring(0, 1)) + Int32.Parse(vCalculo.ToString().Substring(1, 1));
+            }
+
+            if (vnTotal % 10 == 0)
+                return true;
+            else
+                return false;
         }
     }
 }
